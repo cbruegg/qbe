@@ -583,7 +583,7 @@ amd64_emitfn(Fn *fn, FILE *f)
 					itmp.arg[0] = TMP(*r);
                     int is_rbx = !strncmp("rbx", regtoa(itmp.arg[0].val, SLong), 3);
                     if (is_rbx) {
-                        fprintf(f, "\tmovq %%rax, %%rsp \n");
+                        fprintf(f, "\tpopq %%rax \n");
                         fprintf(f, "\tcmpq $%d, %%rax \n", canary);
                         fprintf(f, "\tjne .%s_error \n", fn->name);
                     }
