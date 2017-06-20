@@ -498,12 +498,39 @@ framesz(Fn *fn)
 		o ^= 1 & (fn->reg >> amd64_sysv_rclob[i]);
 	f = fn->slot;
 	f = (f + 3) & -4;
-	return 4*f + 8*o + 176*fn->vararg;
+	return 4*f + 8*o + 176*fn->vararg + 4;
+}
+
+int
+str_hash(char* str, int n) {
+	int h = 0;
+    for (int i = 0; i < n; i++) {
+        h = 31 * h + str[i];
+    }
+	return h;
+}
+
+int fn_rand;
+int fn_rand_initialized;
+
+int get_fn_rand() {
+    if (!fn_rand_initialized) {
+        fn_rand = rand();
+    }
+    return fn_rand;
+}
+
+int fn_canary(Fn* fn) {
+    char* name = fn->name;
+    int hash = str_hash(name, NString);
+    int rand = get_fn_rand();
+    return hash ^ rand;
 }
 
 void
 amd64_emitfn(Fn *fn, FILE *f)
 {
+    int canary = fn_canary(fn);
 	static char *ctoa[] = {
 	#define X(c, s) [c] = s,
 		CMP(X)
@@ -533,12 +560,16 @@ amd64_emitfn(Fn *fn, FILE *f)
 		for (n=0; n<8; ++n, o+=16)
 			fprintf(f, "\tmovaps %%xmm%d, %d(%%rbp)\n", n, o);
 	}
-	for (r=amd64_sysv_rclob; r<&amd64_sysv_rclob[NCLR]; r++)
-		if (fn->reg & BIT(*r)) {
-			itmp.arg[0] = TMP(*r);
-			emitf("pushq %L0", &itmp, fn, f);
-		}
-
+	for (r=amd64_sysv_rclob; r<&amd64_sysv_rclob[NCLR]; r++) {
+        if (fn->reg & BIT(*r)) {
+            itmp.arg[0] = TMP(*r);
+            int is_rbx = !strncmp("rbx", regtoa(itmp.arg[0].val, SLong), 3);
+            emitf("pushq %L0", &itmp, fn, f);
+            if (is_rbx) {
+                fprintf(f, "\tpushq $%d \n", canary);
+            }
+        }
+    }
 	for (lbl=0, b=fn->start; b; b=b->link) {
 		if (lbl || b->npred > 1)
 			fprintf(f, "%sbb%d:\n", gasloc, id0+b->id);
@@ -550,6 +581,12 @@ amd64_emitfn(Fn *fn, FILE *f)
 			for (r=&amd64_sysv_rclob[NCLR]; r>amd64_sysv_rclob;)
 				if (fn->reg & BIT(*--r)) {
 					itmp.arg[0] = TMP(*r);
+                    int is_rbx = !strncmp("rbx", regtoa(itmp.arg[0].val, SLong), 3);
+                    if (is_rbx) {
+                        fprintf(f, "\tmovq %%rax, %%rsp \n");
+                        fprintf(f, "\tcmpq $%d, %%rax \n", canary);
+                        fprintf(f, "\tjne .%s_error \n", fn->name);
+                    }
 					emitf("popq %L0", &itmp, fn, f);
 				}
 			fprintf(f,
@@ -581,5 +618,12 @@ amd64_emitfn(Fn *fn, FILE *f)
 			die("unhandled jump %d", b->jmp.type);
 		}
 	}
+    fprintf(f,
+
+            ".%s_error:\n"
+                    "\tmov %%eax, 60\n"
+                    "\txor %%edi, %%edi\n"
+                    "\tsyscall\n"
+            , fn->name);
 	id0 += fn->nblk;
 }
