@@ -585,7 +585,7 @@ amd64_emitfn(Fn *fn, FILE *f)
                     if (is_rbx) {
                         fprintf(f, "\tpopq %%rax \n");
                         fprintf(f, "\tcmpq $%d, %%rax \n", canary);
-                        fprintf(f, "\tjne .%s_error \n", fn->name);
+						fprintf(f, "\tjne .%s_error \n", fn->name);
                     }
 					emitf("popq %L0", &itmp, fn, f);
 				}
