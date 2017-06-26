@@ -1,8 +1,12 @@
 #include <stdio.h>
+
 fuck() {
   printf("fuck()");
 }
-t() {} bo() {
+
+t() {}
+
+bo() {
   int b;
   int be;
   int* buf;
@@ -17,9 +21,11 @@ t() {} bo() {
   
   for (i = 0;i<100;i++) {
     *(buf + i) = 4195624; #addr of fuck
+    *(buf - i) = 4195624; #addr of fuck
   }
   t();
 }
+
 main(int ac, void **av) {
   bo();
   fuck();

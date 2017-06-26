@@ -529,7 +529,7 @@ int fn_canary(Fn* fn) {
 
 void
 amd64_emitfn(Fn *fn, FILE *f)
-{
+{	
     int canary = fn_canary(fn);
 	static char *ctoa[] = {
 	#define X(c, s) [c] = s,
@@ -560,14 +560,11 @@ amd64_emitfn(Fn *fn, FILE *f)
 		for (n=0; n<8; ++n, o+=16)
 			fprintf(f, "\tmovaps %%xmm%d, %d(%%rbp)\n", n, o);
 	}
+	fprintf(f, "\tpushq $%d \n", canary);
 	for (r=amd64_sysv_rclob; r<&amd64_sysv_rclob[NCLR]; r++) {
         if (fn->reg & BIT(*r)) {
             itmp.arg[0] = TMP(*r);
-            int is_rbx = !strncmp("rbx", regtoa(itmp.arg[0].val, SLong), 3);
             emitf("pushq %L0", &itmp, fn, f);
-            if (is_rbx) {
-                fprintf(f, "\tpushq $%d \n", canary);
-            }
         }
     }
 	for (lbl=0, b=fn->start; b; b=b->link) {
@@ -578,15 +575,12 @@ amd64_emitfn(Fn *fn, FILE *f)
 		lbl = 1;
 		switch (b->jmp.type) {
 		case Jret0:
+			fprintf(f, "\tpopq %%rax \n");
+            fprintf(f, "\tcmpq $%d, %%rax \n", canary);
+			fprintf(f, "\tjne .%s_error \n", fn->name);
 			for (r=&amd64_sysv_rclob[NCLR]; r>amd64_sysv_rclob;)
 				if (fn->reg & BIT(*--r)) {
 					itmp.arg[0] = TMP(*r);
-                    int is_rbx = !strncmp("rbx", regtoa(itmp.arg[0].val, SLong), 3);
-                    if (is_rbx) {
-                        fprintf(f, "\tpopq %%rax \n");
-                        fprintf(f, "\tcmpq $%d, %%rax \n", canary);
-						fprintf(f, "\tjne .%s_error \n", fn->name);
-                    }
 					emitf("popq %L0", &itmp, fn, f);
 				}
 			fprintf(f,
