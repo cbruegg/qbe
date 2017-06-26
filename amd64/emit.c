@@ -615,9 +615,9 @@ amd64_emitfn(Fn *fn, FILE *f)
     fprintf(f,
 
             ".%s_error:\n"
-                    "\tmov %%eax, 60\n"
-                    "\txor %%edi, %%edi\n"
-                    "\tsyscall\n"
+			"\t mov $60, %%eax\n"
+			"\t mov $125, %%edi\n"
+			"\t syscall\n"
             , fn->name);
 	id0 += fn->nblk;
 }
