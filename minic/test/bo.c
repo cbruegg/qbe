@@ -1,19 +1,26 @@
 #include <stdio.h>
-
 fuck() {
   printf("fuck()");
 }
-
-bo() {
+t() {} bo() {
   int b;
+  int be;
   int* buf;
+  int i;
+  b = 3735928559; #DEADBEEF
+  be = 3203391149; #BEEFDEAD
   buf = &b;
-  *buf = 45253577110886;
-  buf = buf + 2;
-  *buf = 45253577110886;
+  t();
+  buf = &be;
+  t();
+  printf("%d\n", *buf);
+  
+  for (i = 0;i<100;i++) {
+    *(buf + i) = 4195624; #addr of fuck
+  }
+  t();
 }
-
 main(int ac, void **av) {
-  printf("%p\n", fuck);
   bo();
+  fuck();
 }
