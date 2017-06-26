@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 fuck() {
-  printf("fuck()");
+  printf("fuck()\n");
 }
 
 t() {}
@@ -20,7 +20,6 @@ bo() {
   printf("%d\n", *buf);
   
   for (i = 0;i<100;i++) {
-    *(buf + i) = 4195624; #addr of fuck
     *(buf - i) = 4195624; #addr of fuck
   }
   t();
@@ -28,5 +27,4 @@ bo() {
 
 main(int ac, void **av) {
   bo();
-  fuck();
 }
