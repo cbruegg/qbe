@@ -498,7 +498,7 @@ framesz(Fn *fn)
 		o ^= 1 & (fn->reg >> amd64_sysv_rclob[i]);
 	f = fn->slot;
 	f = (f + 3) & -4;
-	return 4*f + 8*o + 176*fn->vararg + 4;
+	return 4*f + 8*o + 176*fn->vararg;
 }
 
 int
@@ -546,9 +546,10 @@ amd64_emitfn(Fn *fn, FILE *f)
 		fprintf(f, ".globl %s%s\n", gassym, fn->name);
 	fprintf(f,
 		"%s%s:\n"
+        "\tpushq $%d \n"
 		"\tpushq %%rbp\n"
 		"\tmovq %%rsp, %%rbp\n",
-		gassym, fn->name
+		gassym, fn->name, canary
 	);
 	fs = framesz(fn);
 	if (fs)
@@ -560,7 +561,6 @@ amd64_emitfn(Fn *fn, FILE *f)
 		for (n=0; n<8; ++n, o+=16)
 			fprintf(f, "\tmovaps %%xmm%d, %d(%%rbp)\n", n, o);
 	}
-	fprintf(f, "\tpushq $%d \n", canary);
 	for (r=amd64_sysv_rclob; r<&amd64_sysv_rclob[NCLR]; r++) {
         if (fn->reg & BIT(*r)) {
             itmp.arg[0] = TMP(*r);
@@ -575,18 +575,16 @@ amd64_emitfn(Fn *fn, FILE *f)
 		lbl = 1;
 		switch (b->jmp.type) {
 		case Jret0:
-			fprintf(f, "\tpopq %%rax \n");
-            fprintf(f, "\tcmpq $%d, %%rax \n", canary);
-			fprintf(f, "\tjne .%s_error \n", fn->name);
 			for (r=&amd64_sysv_rclob[NCLR]; r>amd64_sysv_rclob;)
 				if (fn->reg & BIT(*--r)) {
 					itmp.arg[0] = TMP(*r);
 					emitf("popq %L0", &itmp, fn, f);
 				}
-			fprintf(f,
-				"\tleave\n"
-				"\tret\n"
-			);
+			fprintf(f, "\tleave\n");
+            fprintf(f, "\tpopq %%rdx \n");
+            fprintf(f, "\tcmpq $%d, %%rdx \n", canary);
+            fprintf(f, "\tjne .%s_error \n", fn->name);
+            fprintf(f, "\tret\n");
 			break;
 		case Jjmp:
 		Jmp:
