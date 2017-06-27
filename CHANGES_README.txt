@@ -1,0 +1,2 @@
+- emit.c contains a #define ENABLE_CANARY at the top. If set to 0, the canary value is pushed and popped, but never checked.
+- When the stack canary is enabled and differs from the correct value, the exit syscall is performed with exit code 125
