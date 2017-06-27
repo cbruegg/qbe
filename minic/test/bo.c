@@ -12,17 +12,9 @@ bo() {
   int* buf;
   int i;
   b = 3735928559; #DEADBEEF
-  be = 3203391149; #BEEFDEAD
-  buf = &b;
-  t();
-  buf = &be;
-  t();
-  printf("%d\n", *buf);
-  
-  for (i = 0;i<100;i++) {
-    *(buf - i) = 4195624; #addr of fuck
-  }
-  t();
+          be = 3203391149; #BEEFDEAD
+          buf = &be;
+  buf[3] = 4195622;
 }
 
 main(int ac, void **av) {
