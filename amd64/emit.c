@@ -1,5 +1,6 @@
 #include "all.h"
 
+#define ENABLE_CANARY 1
 
 #define CMP(X) \
 	X(Ciule,      "be") \
@@ -582,8 +583,13 @@ amd64_emitfn(Fn *fn, FILE *f)
 				}
 			fprintf(f, "\tleave\n");
             fprintf(f, "\tpopq %%rdx \n");
+			#if ENABLE_CANARY
             fprintf(f, "\tcmpq $%d, %%rdx \n", canary);
             fprintf(f, "\tjne .%s_error \n", fn->name);
+			#else
+			fprintf(f, "\tnop \n");
+			fprintf(f, "\tnop \n");
+			#endif
             fprintf(f, "\tret\n");
 			break;
 		case Jjmp:
