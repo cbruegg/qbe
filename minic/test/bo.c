@@ -18,7 +18,7 @@ bo() {
   buf[2] = -1;
   buf[3] = -1; # this overwrites the canary
   buf[4] = -1;
-  buf[5] = 4195624;
+  buf[5] = 4195622;
 }
 
 main(int ac, void **av) {
