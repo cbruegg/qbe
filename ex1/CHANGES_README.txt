@@ -1,3 +1,3 @@
-- emit.c contains a #define ENABLE_CANARY at the top. If set to 0, the canary value is pushed and popped, but never checked.
+ - emit.c contains a #define ENABLE_CANARY at the top. If set to 0, the canary value is pushed and popped, but never checked.
 - When the stack canary is enabled and differs from the correct value, the exit syscall is performed with exit code 125
-- The program that was used for testing is called bo.c and can be found under /minic/test. Due to different compilers it might be necessary to replace adress of the method fuck() in the bo.c (line 21). The new adress can be gathered by using an objectdump (objdump -d a.out) on the compiled binary 
+- The program that was used for testing is called bo.c and can be found under /minic/test. Due to different compilers (we used gcc) it might be necessary to replace adress of the method fuck() in the bo.c (line 21). The new adress can be gathered by using an objectdump (objdump -d a.out) on the compiled binary 
