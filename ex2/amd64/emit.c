@@ -1,5 +1,6 @@
 #include "all.h"
 
+#define MAX_NOPS_PER_INS 3
 
 #define CMP(X) \
 	X(Ciule,      "be") \
@@ -361,6 +362,12 @@ emitins(Ins i, Fn *fn, FILE *f)
 	Ref r;
 	int64_t val;
 	int o;
+
+	srand(0);
+	int random = rand() % MAX_NOPS_PER_INS;
+	for (int i = 0; i < random; i++) {
+		fprintf(f, "\tmov %%eax, %%eax\n");
+	}
 
 	switch (i.op) {
 	default:
