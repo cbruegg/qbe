@@ -50,9 +50,12 @@ data(Dat *d)
 	gasemitdat(d, outf);
 }
 
-static void
+static char*
 func(Fn *fn)
 {
+	char* buf = malloc(10000 * sizeof(char));
+	buf[9999] = NULL;
+
 	uint n;
 
 	if (dbg)
@@ -97,11 +100,13 @@ func(Fn *fn)
 		} else
 			fn->rpo[n]->link = fn->rpo[n+1];
 	if (!dbg) {
-		T.emitfn(fn, outf);
-		fprintf(outf, "/* end function %s */\n\n", fn->name);
+		T.emitfn(fn, buf);
+		fprintf(buf, "/* end function %s */\n\n", fn->name);
 	} else
 		fprintf(stderr, "\n");
 	freeall();
+
+	return buf;
 }
 
 int

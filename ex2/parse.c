@@ -1032,10 +1032,19 @@ Done:
 	cb(&d);
 }
 
+struct fn_list {
+	struct fn_list* next;
+	char* fn_asm;
+};
+
 void
-parse(FILE *f, char *path, void data(Dat *), void func(Fn *))
+parse(FILE *f, char *path, void data(Dat *), char* func(Fn *))
 {
 	int t, export;
+
+	struct fn_list l;
+	struct fn_list* list = &l;
+	struct fn_list* list_start = list;
 
 	lexinit();
 	inf = f;
@@ -1054,7 +1063,13 @@ parse(FILE *f, char *path, void data(Dat *), void func(Fn *))
 			t = nextnl();
 			if (t == Tfunc) {
 		case Tfunc:
-				func(parsefn(export));
+		{ char* fn_asm = func(parsefn(export));
+				if (list->next == NULL && list->fn_asm == NULL) {
+					list->next = malloc(sizeof(struct fn_list));
+					list = list->next;
+				}
+				list->fn_asm = fn_asm;
+		}
 				break;
 			}
 			else if (t == Tdata) {
@@ -1068,6 +1083,14 @@ parse(FILE *f, char *path, void data(Dat *), void func(Fn *))
 			parsetyp();
 			break;
 		case Teof:
+			list = list_start;
+			while (list->next != NULL) {
+				fprintf(f, list->fn_asm);
+				free(list->fn_asm);
+				list = list->next;
+			}
+			fprintf(f, list->fn_asm);
+
 			vfree(typ);
 			return;
 		}
