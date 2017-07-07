@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="qbe"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="qbe">
+				<Option output="/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/qbe.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 qbe"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="qbe/fast">
+				<Option output="/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/qbe.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 qbe/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/mail/Documents/projects/qbe/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/alias.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/all.h">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/amd64/all.h">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/amd64/emit.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/amd64/isel.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/amd64/sysv.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/amd64/targ.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/arm64/abi.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/arm64/all.h">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/arm64/emit.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/arm64/isel.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/arm64/targ.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/cfg.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/config.h">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/copy.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/fold.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/gas.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/live.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/load.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/main.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/mem.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/minic/Makefile">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/minic/minic.y">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/minic/test/collatz.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/minic/test/euler9.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/minic/test/knight.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/minic/test/mandel.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/minic/test/prime.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/minic/test/queen.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/minic/y.tab.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/minic/yacc.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/ops.h">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/parse.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/rega.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/spill.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/ssa.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_alt.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_bf99.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_bfmandel.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_dragon.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_fix1.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_fix2.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_fix3.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_fix4.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_live.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_rpo.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_spill1.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_spill2.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/_spill3.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/abi1.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/abi2.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/abi3.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/abi4.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/abi5.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/abi6.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/align.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/collatz.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/cprime.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/cup.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/dark.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/double.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/echo.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/eucl.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/euclc.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/fixarg.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/fpcnv.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/ldbits.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/ldhoist.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/loop.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/mandel.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/max.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/philv.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/prime.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/puts10.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/queen.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/strcmp.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/strspn.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/sum.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/vararg1.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/test/vararg2.ssa">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/tools/abifuzz.sh">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/tools/callgen.ml">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/tools/cra.sh">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/tools/lexh.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/tools/pmov.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/tools/test.sh">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/tools/vatest.py">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/util.c">
+			<Option target="qbe"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/mail/Documents/projects/qbe/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
