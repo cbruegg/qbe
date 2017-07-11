@@ -1034,8 +1034,28 @@ Done:
 
 struct fn_list {
 	struct fn_list* next;
-	char* fn_asm;
+	char* fn_filename;
 };
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/sendfile.h>
+
+int OSCopyFile(FILE* input, FILE* output)
+{
+	//Here we use kernel-space copying for performance reasons
+	//sendfile will work with non-socket output (i.e. regular file) on Linux 2.6.33+
+	off_t bytesCopied = 0;
+	struct stat fileinfo = {0};
+	fstat(input, &fileinfo);
+	int result = sendfile(output, input, &bytesCopied, fileinfo.st_size);
+
+	close(input);
+	close(output);
+
+	return result;
+}
 
 void
 parse(FILE *f, char *path, void data(Dat *), char* func(Fn *))
@@ -1063,12 +1083,13 @@ parse(FILE *f, char *path, void data(Dat *), char* func(Fn *))
 			t = nextnl();
 			if (t == Tfunc) {
 		case Tfunc:
-		{ char* fn_asm = func(parsefn(export));
-				if (list->next == NULL && list->fn_asm == NULL) {
+		{ char* fn_filename = func(parsefn(export));
+				if (list->next == NULL && list->fn_filename == NULL) {
 					list->next = malloc(sizeof(struct fn_list));
 					list = list->next;
 				}
-				list->fn_asm = fn_asm;
+				list->fn_filename = fn_filename;
+                fprintf(stderr, "Set list item filename to %s\n", fn_filename);
 		}
 				break;
 			}
@@ -1085,11 +1106,19 @@ parse(FILE *f, char *path, void data(Dat *), char* func(Fn *))
 		case Teof:
 			list = list_start;
 			while (list->next != NULL) {
-				fprintf(f, list->fn_asm);
-				free(list->fn_asm);
+                fprintf(stderr, "Copying %s\n", list->fn_filename);
+				FILE* input = fopen(list->fn_filename, "r");
+				FILE* output = f;
+				OSCopyFile(input, output);
+				fclose(input);
+				free(list->fn_filename);
 				list = list->next;
 			}
-			fprintf(f, list->fn_asm);
+			FILE* input = fopen(list->fn_filename, "r");
+			FILE* output = f;
+			OSCopyFile(input, output);
+			fclose(input);
+			free(list->fn_filename);
 
 			vfree(typ);
 			return;
