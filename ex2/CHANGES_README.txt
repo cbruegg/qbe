@@ -1,0 +1,6 @@
+- Random NOP insertion: Inserting mov eax, eax in emit.c:366
+- Function permutation:
+  - main.c, method func: Emit function instructions to a temp file
+  - parse.c: 
+    - Build a list of files containing the instructions for functions (case Tfunc: [...])
+	- Shuffle list and print it to permute functions in generated assembly code (case Teof: [...])
