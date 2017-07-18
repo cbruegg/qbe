@@ -50,8 +50,6 @@ data(Dat *d)
 	gasemitdat(d, outf);
 }
 
-#include <errno.h>
-
 static char*
 func(Fn *fn)
 {
