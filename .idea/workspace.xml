@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fa9a2ace-0dfe-422d-bb7b-6de4e9a25cd2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ex2/main.c" afterPath="$PROJECT_DIR$/ex2/main.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ex2/parse.c" afterPath="$PROJECT_DIR$/ex2/parse.c" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -48,8 +47,8 @@
       <file leaf-file-name="parse.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ex2/parse.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="1062" column="21" lean-forward="false" selection-start-line="1062" selection-start-column="21" selection-end-line="1062" selection-end-column="21" />
+            <state relative-caret-position="200">
+              <caret line="1088" column="14" lean-forward="true" selection-start-line="1088" selection-start-column="14" selection-end-line="1088" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -58,8 +57,8 @@
       <file leaf-file-name="emit.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ex1/amd64/emit.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10620">
-              <caret line="531" column="0" lean-forward="false" selection-start-line="531" selection-start-column="0" selection-end-line="531" selection-end-column="0" />
+            <state relative-caret-position="172">
+              <caret line="537" column="12" lean-forward="true" selection-start-line="537" selection-start-column="12" selection-end-line="537" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -97,6 +96,8 @@
       <find>te</find>
       <find>testtest</find>
       <find>OSCOP</find>
+      <find>copy_f</find>
+      <find>shuffle</find>
     </findStrings>
     <replaceStrings>
       <replace>sprintf(f</replace>
@@ -127,7 +128,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
-    <option name="width" value="1932" />
+    <option name="width" value="1938" />
     <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
@@ -404,7 +405,7 @@
       <workItem from="1498041031726" duration="881000" />
       <workItem from="1498553692919" duration="3131000" />
       <workItem from="1499439719013" duration="3379000" />
-      <workItem from="1500367109297" duration="460000" />
+      <workItem from="1500367109297" duration="1557000" />
     </task>
     <task id="LOCAL-00001" summary="Initial broken changes">
       <created>1497958182820</created>
@@ -434,22 +435,29 @@
       <option name="project" value="LOCAL" />
       <updated>1499765123966</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix output">
+      <created>1500367582409</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1500367582409</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20475000" />
+    <option name="totallyTimeSpent" value="21572000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17943338" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32601535" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32601535" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33296338" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33260155" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -523,7 +531,8 @@
     <MESSAGE value="Fix segfault" />
     <MESSAGE value="Fix stack canary" />
     <MESSAGE value="A few fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="A few fixes" />
+    <MESSAGE value="Fix output" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix output" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -665,14 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ex1/amd64/emit.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10620">
-          <caret line="531" column="0" lean-forward="false" selection-start-line="531" selection-start-column="0" selection-end-line="531" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ex2/main.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1040">
@@ -681,10 +682,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ex1/amd64/emit.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="537" column="12" lean-forward="true" selection-start-line="537" selection-start-column="12" selection-end-line="537" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ex2/parse.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="1062" column="21" lean-forward="false" selection-start-line="1062" selection-start-column="21" selection-end-line="1062" selection-end-column="21" />
+        <state relative-caret-position="200">
+          <caret line="1088" column="14" lean-forward="true" selection-start-line="1088" selection-start-column="14" selection-end-line="1088" selection-end-column="14" />
           <folding />
         </state>
       </provider>

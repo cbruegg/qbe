@@ -1037,6 +1037,46 @@ struct fn_list {
 	char* fn_filename;
 };
 
+/* Arrange the N elements of ARRAY in random order.
+   Only effective if N is much smaller than RAND_MAX;
+   if this may not be the case, use a better random
+   number generator. */
+void shuffle_array(struct fn_list* array, size_t n)
+{
+	srand(time());
+    if (n > 1)
+    {
+        size_t i;
+        for (i = 0; i < n - 1; i++)
+        {
+            size_t j = i + rand() / (RAND_MAX / (n - i) + 1);
+            struct fn_list t = array[j];
+            array[j] = array[i];
+            array[i] = t;
+        }
+    }
+}
+
+struct fn_list* shuffle_list(struct fn_list* list) {
+    int n = 0;
+    for (struct fn_list* elem = list; elem != NULL; elem = elem->next) {
+        n++;
+    }
+    struct fn_list* arr = malloc(n * sizeof(struct fn_list));
+
+    int i = 0;
+    for (struct fn_list* elem = list; elem != NULL; elem = elem->next) {
+        arr[i++] = *elem;
+    }
+
+    shuffle_array(arr, n);
+    for (int i = 0; i < n - 1; i++) {
+        arr[i].next = &arr[i + 1];
+    }
+    arr[n - 1].next = NULL;
+	return arr;
+}
+
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/stat.h>
@@ -1061,7 +1101,7 @@ void copy_file(FILE* input, FILE* output)
 {
     char buffer[2048];
     while(fgets(buffer, 2048, input)) {
-        fprintf(output, buffer);
+        fprintf(output, "%s", buffer);
     }
 }
 
@@ -1114,6 +1154,7 @@ parse(FILE *f, char *path, void data(Dat *), char* func(Fn *))
 			parsetyp();
 			break;
 		case Teof:
+			list_start = shuffle_list(list_start);
 			list = list_start;
 			while (list->next != NULL) {
                 fprintf(stderr, "Copying %s to %s\n", list->fn_filename, recover_filename(stdout));
@@ -1129,7 +1170,7 @@ parse(FILE *f, char *path, void data(Dat *), char* func(Fn *))
 			FILE* input = fopen(list->fn_filename, "r");
 			fprintf(stderr, "Input is %p\n", input);
 			FILE* output = stdout;
-                copy_file(input, output);
+            copy_file(input, output);
 			fclose(input);
 			free(list->fn_filename);
 
