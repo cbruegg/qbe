@@ -363,7 +363,7 @@ emitins(Ins i, Fn *fn, FILE *f)
 	int64_t val;
 	int o;
 
-	srand(0);
+	srand(time());
 	int random = rand() % MAX_NOPS_PER_INS;
 	for (int i = 0; i < random; i++) {
 		fprintf(f, "\tmov %%eax, %%eax\n");
