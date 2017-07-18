@@ -1077,26 +1077,6 @@ struct fn_list* shuffle_list(struct fn_list* list) {
 	return arr;
 }
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <sys/sendfile.h>
-
-char * recover_filename(FILE * f) {
-    int fd;
-    char fd_path[255];
-    char * filename = malloc(255);
-    ssize_t n;
-
-    fd = fileno(f);
-    sprintf(fd_path, "/proc/self/fd/%d", fd);
-    n = readlink(fd_path, filename, 255);
-    if (n < 0)
-        return NULL;
-    filename[n] = '\0';
-    return filename;
-}
-
 void copy_file(FILE* input, FILE* output)
 {
     char buffer[2048];
@@ -1134,12 +1114,10 @@ parse(FILE *f, char *path, void data(Dat *), char* func(Fn *))
 		{
             char* fn_filename = func(parsefn(export));
             if (list->next == NULL && list->fn_filename != NULL) {
-                fprintf(stderr, "Setting list->next\n");
                 list->next = calloc(1, sizeof(struct fn_list));
                 list = list->next;
             }
             list->fn_filename = fn_filename;
-            fprintf(stderr, "Set list item filename to %s\n", fn_filename);
 		}
 				break;
 			}
@@ -1157,20 +1135,14 @@ parse(FILE *f, char *path, void data(Dat *), char* func(Fn *))
 			list_start = shuffle_list(list_start);
 			list = list_start;
 			while (list->next != NULL) {
-                fprintf(stderr, "Copying %s to %s\n", list->fn_filename, recover_filename(stdout));
 				FILE* input = fopen(list->fn_filename, "r");
-				fprintf(stderr, "Input is %p\n", input);
-				FILE* output = stdout;
-                copy_file(input, output);
+                copy_file(input, stdout);
 				fclose(input);
 				free(list->fn_filename);
 				list = list->next;
 			}
-            fprintf(stderr, "Copying %s to %s\n", list->fn_filename, recover_filename(stdout));
 			FILE* input = fopen(list->fn_filename, "r");
-			fprintf(stderr, "Input is %p\n", input);
-			FILE* output = stdout;
-            copy_file(input, output);
+            copy_file(input, stdout);
 			fclose(input);
 			free(list->fn_filename);
 

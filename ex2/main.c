@@ -55,7 +55,6 @@ func(Fn *fn)
 {
 	char* filename = malloc(256 * sizeof(char));
     sprintf(filename, "/tmp/%s", fn->name);
-    fprintf(stderr, "Printing to %s\n", filename);
     FILE* buf = fopen(filename, "w");
 
 	uint n;
@@ -102,7 +101,6 @@ func(Fn *fn)
 		} else
 			fn->rpo[n]->link = fn->rpo[n+1];
 	if (!dbg) {
-        fprintf(stderr, "Emit function %s\n", fn->name);
 		T.emitfn(fn, buf);
         fprintf(buf, "/* end function %s */\n\n", fn->name);
     } else
